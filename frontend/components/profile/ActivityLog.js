@@ -39,7 +39,7 @@ const ActivityLog = () => {
       }
 
       // Build URL with filter
-      let url = "http://localhost:5000/api/users/me/activities";
+      let url = `${process.env.NEXT_PUBLIC_API_URL}/api/users/me/activities`;
       if (filter !== "all") {
         url += `?action=${filter}`;
       }

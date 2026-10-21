@@ -40,9 +40,7 @@ import {
   Mail,
   Phone,
   Globe,
-  Facebook,
-  Twitter,
-  Linkedin,
+
   Link as LinkIcon,
   QrCode,
   FileText,
@@ -880,16 +878,16 @@ export default function AdminResourceDetailPage() {
               </div>
               <div className="flex justify-center gap-4">
                 <button className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
-                  <Facebook className="h-5 w-5" />
+                  <Globe className="h-5 w-5" />
                 </button>
                 <button className="p-3 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition-colors">
-                  <Twitter className="h-5 w-5" />
+                  <LinkIcon className="h-5 w-5" />
                 </button>
                 <button className="p-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors">
                   <WhatsApp className="h-5 w-5" />
                 </button>
                 <button className="p-3 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition-colors">
-                  <Linkedin className="h-5 w-5" />
+                  <LinkIcon className="h-5 w-5" />
                 </button>
               </div>
             </div>

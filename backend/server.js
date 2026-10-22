@@ -62,8 +62,19 @@ if (isSentryEnabled) {
 }
 
 // ============ CORS CONFIGURATION - MUST BE FIRST ============
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://student-resource-sharing-platform.vercel.app",
+];
+
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:3000",
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`Origin not allowed by CORS: ${origin}`));
+  },
   credentials: true,
   exposedHeaders: ["x-auth-token"],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],

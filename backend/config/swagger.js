@@ -66,8 +66,8 @@ const options = {
         description: "Development server",
       },
       {
-        url: process.env.PRODUCTION_URL || "https://api.resourcehub.com/api",
-        description: "Production server",
+        url: "https://resourcehub-backend-pfly.onrender.com/api",
+        description: "Render production server",
       },
     ],
     components: {

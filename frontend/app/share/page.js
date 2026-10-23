@@ -33,10 +33,12 @@ export default function SharePage() {
 
   // Redirect if not authenticated
   useEffect(() => {
-    if (!authLoading && !isAuthenticated && !user) {
-      router.push("/login?redirect=/share");
+    if (authLoading) return;
+
+    if (!isAuthenticated) {
+      router.replace("/login?redirect=/share");
     }
-  }, [isAuthenticated, user, router, authLoading]);
+  }, [authLoading, isAuthenticated, router]);
 
   // Main form state
   const [formData, setFormData] = useState({
@@ -418,7 +420,7 @@ export default function SharePage() {
       }
 
       // Build URL correctly - FIXED: Remove duplicate /api
-      const apiUrl = "http://localhost:5000/api/resources";
+      const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/resources`;
 
       console.log("Making request to:", apiUrl);
 
@@ -1199,8 +1201,8 @@ export default function SharePage() {
 
   return (
     <>
-    <AnnouncementBar />
-          <Header />
+      <AnnouncementBar />
+      <Header />
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12">
         {/* Success Modal */}
         {showSuccessModal && (
@@ -1404,4 +1406,3 @@ export default function SharePage() {
     </>
   );
 }
-

@@ -65,6 +65,7 @@ if (isSentryEnabled) {
 const allowedOrigins = [
   "http://localhost:3000",
   "https://student-resource-sharing-platform.vercel.app",
+  "https://student-resource-sharing-platform-hd2pifb84.vercel.app",
 ];
 
 const corsOptions = {

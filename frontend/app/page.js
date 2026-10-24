@@ -4,7 +4,9 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "../context/AuthContext";
+import { api } from "../lib/api";
 import { motion, useAnimation, useInView } from "framer-motion";
+
 import {
   Search,
   ArrowRight,
@@ -43,7 +45,11 @@ import {
   Quote,
   Plus,
   UserPlus,
+  Handshake,
+  RotateCcw,
+  Activity,
 } from "lucide-react";
+
 // import Header from "@/components/layout/Header";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
@@ -256,7 +262,7 @@ const FeaturedResources = () => {
 
   const loadFeaturedResources = async () => {
     try {
-      const data = await apiCall("/resources/featured");
+      const data = await api.get("/resources/featured");
       if (data.success) {
         setResources(data.featured);
       }
@@ -816,7 +822,7 @@ const RecentActivity = () => {
 
   const loadActivities = async () => {
     try {
-      const data = await apiCall("/analytics/activities?limit=5");
+      const data = await api.get("/analytics/activities?limit=5");
       if (data.success) {
         setActivities(data.activities);
       }
@@ -938,8 +944,6 @@ const RecentActivity = () => {
               ))}
             </div>
           )}
-
-
         </div>
       </div>
     </section>
@@ -958,7 +962,7 @@ const Testimonials = () => {
 
   const loadTestimonials = async () => {
     try {
-      const data = await apiCall("/analytics/testimonials");
+      const data = await api.get("/analytics/testimonials");
       if (data.success) {
         setTestimonials(data.testimonials);
       }
